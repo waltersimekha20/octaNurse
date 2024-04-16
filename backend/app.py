@@ -20,11 +20,14 @@ Migrate(app,db)
 api=Api(app)
 
 
-@app.route('/')
-class index:
+
+class Index(Resource):
     def index(self):
-        response=make_response(jsonify({"message":"Welcome to Onto Nurse API"}),200)
-        return response
+        
+        return {"message":"Welcome to Onto Nurse API"}
+
+api.add_resource(Index,'/')
+
     
 if(__name__=="__main__"):
    app.run(debug=True,port=5000)
